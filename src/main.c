@@ -79,9 +79,7 @@ volatile bool waitingResponse = false,Response_Received=false;
 int t=0,Key_Switch_Counter=0;
 int16_t DC_Current_Scaled=1;
 extern volatile int decimal_part,variable;
-char logBuffer[100];
-
-//
+char logBuffer[200];
 typedef enum
 {
 ACC,
