@@ -8,9 +8,7 @@
 #include "dma.h"
 #include "gear_shifter.h"
 #include "Throttle_read.h"
-
 #define GEAR_RATIO 6.43
-
 extern uint16_t delayValue;
 extern flexcan_msgbuff_t recvBuff302;
 extern uint16_t speed_rpm_motor,wheel_rpm,speed_kmph ;
@@ -20,8 +18,7 @@ extern uint8_t mc_cmd[8];
 extern uint8_t bms_cmd[8];
 extern uint8_t drive_status;
 extern uint8_t DL_cmd0[8], DL_cmd1[8],DL_cmd2[8];
-
-uint8_t diff = 0;
+uint8_t diff = 0,brake_flag=0;
 uint8_t implausiblity;
 double curr_distance;
 double odometer=515;
@@ -37,12 +34,10 @@ edma_loop_transfer_config_t loopConfig = {
     .majorLoopChnLinkEnable = false,
     .majorLoopChnLinkNumber = 0
 };
-
 const adc_chan_config_t adConv1_ChnConfig0 = {
   .interruptEnable = false,
   .channel = ADC_INPUTCHAN_EXT2,
 };
-
 const adc_chan_config_t adConv1_ChnConfig1 = {
   .interruptEnable = false,
   .channel = ADC_INPUTCHAN_EXT11,
@@ -68,14 +63,14 @@ edma_transfer_config_t transferConfig = {
     .scatterGatherEnable = false,
     .scatterGatherNextDescAddr = 0,
    .interruptEnable = true,
-    .loopTransferConfig = &loopConfig
+   .loopTransferConfig = &loopConfig
 };
 
 
 void ADC_Init()
 {
 	ADC_DRV_Reset(INST_ADC_1);
-	ADC_DRV_ConfigConverter(INST_ADC_1, &adc_config_1_ConvConfig0);
+	 ADC_DRV_ConfigConverter(INST_ADC_1, &adc_config_1_ConvConfig0);
 	ADC_DRV_AutoCalibration(INST_ADC_1);
 	ADC_DRV_ConfigChan(INST_ADC_1, 0UL, &adConv1_ChnConfig0);
 	ADC_DRV_ConfigChan(INST_ADC_1, 1UL, &adConv1_ChnConfig1);
@@ -112,12 +107,9 @@ void DMA_transfer(uint8_t channel, uint8_t * srcBuff, uint16_t * dstBuff, uint32
 	transferConfig.destLastAddrAdjust	= -(2 * size);
 	loopConfig.majorLoopIterationCount	= size;
 	//transferConfig.minorByteTransferCount = size / 3 * 2;
-
-		DmaReq = EDMA_REQ_ADC1;
-
+    DmaReq = EDMA_REQ_ADC1;
 	/* configure the eDMA channel for a loop transfer (via transfer configuration structure */
 	EDMA_DRV_ConfigLoopTransfer(channel, &transferConfig);
-
 	  /* select hw request */
 	EDMA_DRV_SetChannelRequestAndTrigger(channel, DmaReq, false);
 
@@ -127,13 +119,11 @@ void DMA_transfer(uint8_t channel, uint8_t * srcBuff, uint16_t * dstBuff, uint32
 
 void DMA_Callback(void *parameter, edma_chn_status_t status)
 {
-	(void)status;
-	(void)parameter;
-
-	map_result1= Map(ADC1_Sample.ADC1_SE2,Min_ADCch2,Max_ADCch2,ADC_offsetch2);
-	map_result2= Map(ADC1_Sample.ADC1_SE11,Min_ADCch11,Max_ADCch11,ADC_offsetch11);
-
-	implausiblity = Implausibility_check();
+(void)status;
+(void)parameter;
+    map_result1= Map(ADC1_Sample.ADC1_SE2,Min_ADCch2,Max_ADCch2,ADC_offsetch2);
+    map_result2= Map(ADC1_Sample.ADC1_SE11,Min_ADCch11,Max_ADCch11,ADC_offsetch11);
+    implausiblity = Implausibility_check();
 	if(map_result1 > map_result2)
 		diff = (map_result1 - map_result2);
 	else
@@ -142,19 +132,21 @@ void DMA_Callback(void *parameter, edma_chn_status_t status)
 	if(ADC1_Sample.ADC1_SE8 > 800)
 	{
 		brake = ON;
-	 PINS_DRV_ClearPins(PTD, 1 << 16);
+		brake_flag=1;
+		PINS_DRV_SetPins(PTD, 1 << 0);
 	}
 
 	else
 	{
 		brake = OFF;
-	 PINS_DRV_SetPins(PTD, 1 << 16);
+		brake_flag=0;
+		PINS_DRV_ClearPins(PTD, 1 << 0);
 	}
 
 	if(drive_status == P || drive_status == N)
 	{
 		/**Disable reverse light*/
-		PINS_DRV_ClearPins(PTE, 1 << 9);
+//		PINS_DRV_ClearPins(PTE, 1 << 9);
 
 		throttle_data = 0;
 		mc_cmd[0] =MC_PARKING_STATE;
@@ -166,8 +158,7 @@ void DMA_Callback(void *parameter, edma_chn_status_t status)
 	else if(drive_status == D)
 	{
 		/**Disable reverse light*/
-		PINS_DRV_ClearPins(PTE, 1 << 9);
-
+	//	PINS_DRV_ClearPins(PTE, 1 << 9);
 //		throttle_data = ((map_result1)*2.56*7);
 		throttle_data = ((map_result1)*80);
 		mc_cmd[0] =MC_FORWARD_STATE;
@@ -178,7 +169,7 @@ void DMA_Callback(void *parameter, edma_chn_status_t status)
 	else if(drive_status == R)
 	{
 		/**Enable reverse light*/
-		PINS_DRV_SetPins(PTE, 1 << 9);
+	//	PINS_DRV_SetPins(PTE, 1 << 9);
 
 //		throttle_data =(map_result1 * 2.56*7);
 		throttle_data = ((map_result1)*80);
@@ -190,7 +181,7 @@ void DMA_Callback(void *parameter, edma_chn_status_t status)
 
 	mc_cmd[4] =(uint8_t)((throttle_data % 256));//throttle val rem
 	mc_cmd[5] =(uint8_t)((throttle_data / 256));//throttle val quotient
-	mc_cmd[6] =(uint8_t)(throttle_data % 256);
+	mc_cmd[6] =(uint8_t)(throttle_data %  256);
 	mc_cmd[7] =(uint8_t)((throttle_data / 256));
 
 
@@ -200,7 +191,6 @@ void DMA_Callback(void *parameter, edma_chn_status_t status)
 	{
 		signed_speed_rpm_motor = (-1)*signed_speed_rpm_motor;
 	}
-
 	wheel_rpm = signed_speed_rpm_motor/GEAR_RATIO;
 //	if(map_result1 ==0)
 //	{
@@ -225,4 +215,3 @@ void DMA_Callback(void *parameter, edma_chn_status_t status)
 	DL_cmd1[6] = mc_cmd[5];
 	DL_cmd1[7] = speed_kmph;
 }
-

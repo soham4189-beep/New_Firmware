@@ -75,6 +75,11 @@
 			<locationURI>s32sdk_s32k1xx_rtm_401/platform/drivers/src/lptmr/doxygen/lptmr_driver.dox</locationURI>
 		</link>
 		<link>
+			<name>doc/SDK/platform/drivers/src/lpuart/doxygen/lpuart_driver.dox</name>
+			<type>1</type>
+			<locationURI>S32SDK_S32K1XX_RTM_4.0.1/platform/drivers/src/lpuart/doxygen/lpuart_driver.dox</locationURI>
+		</link>
+		<link>
 			<name>doc/SDK/platform/drivers/src/pdb/doxygen/pdb.dox</name>
 			<type>1</type>
 			<locationURI>s32sdk_s32k1xx_rtm_401/platform/drivers/src/pdb/doxygen/pdb.dox</locationURI>

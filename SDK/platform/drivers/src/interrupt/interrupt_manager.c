@@ -186,6 +186,7 @@ void INT_SYS_InstallHandler(IRQn_Type irqNumber,
  *END**************************************************************************/
 void INT_SYS_EnableIRQ(IRQn_Type irqNumber)
 {
+
 #if (defined(DEV_ERROR_DETECT) || defined(CUSTOM_DEVASSERT))
     /* Check IRQ number - dev_irqNumber is used to avoid compiler warning */
     int32_t dev_irqNumber = (int32_t)irqNumber;
@@ -202,6 +203,7 @@ void INT_SYS_EnableIRQ(IRQn_Type irqNumber)
     MSCM->IRSPRC[irqNumber] |= cpu_enable;
 
 #endif /* FEATURE_MSCM_HAS_INTERRUPT_ROUTER */
+
 }
 
 /*FUNCTION**********************************************************************

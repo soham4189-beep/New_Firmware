@@ -86,15 +86,6 @@
                         <pin_feature name="PS" value="state_0"/>
                      </pin_features>
                   </pin>
-                  <pin peripheral="PORTE" signal="port, 15" pin_num="2" pin_signal="PTE15">
-                     <pin_features>
-                        <pin_feature name="direction" value="INPUT"/>
-                        <pin_feature name="ISF" value="state_1"/>
-                        <pin_feature name="IRQC" value="state_1010"/>
-                        <pin_feature name="PE" value="state_1"/>
-                        <pin_feature name="PS" value="state_1"/>
-                     </pin_features>
-                  </pin>
                   <pin peripheral="PORTA" signal="port, 14" pin_num="88" pin_signal="PTA14">
                      <pin_features>
                         <pin_feature name="direction" value="OUTPUT"/>
@@ -118,13 +109,149 @@
                   </pin>
                   <pin peripheral="CAN1" signal="txd, txd" pin_num="89" pin_signal="PTA13"/>
                   <pin peripheral="CAN1" signal="rxd, rxd" pin_num="90" pin_signal="PTA12"/>
+                  <pin peripheral="PORTA" signal="port, 7" pin_num="57" pin_signal="PTA7">
+                     <pin_features>
+                        <pin_feature name="direction" value="OUTPUT"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="PORTD" signal="port, 15" pin_num="22" pin_signal="PTD15">
+                     <pin_features>
+                        <pin_feature name="direction" value="OUTPUT"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="PORTD" signal="port, 0" pin_num="4" pin_signal="PTD0">
+                     <pin_features>
+                        <pin_feature name="direction" value="OUTPUT"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="PORTB" signal="port, 5" pin_num="27" pin_signal="PTB5">
+                     <pin_features>
+                        <pin_feature name="direction" value="OUTPUT"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="PORTD" signal="port, 8" pin_num="42" pin_signal="PTD8">
+                     <pin_features>
+                        <pin_feature name="direction" value="OUTPUT"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="PORTB" signal="port, 2" pin_num="48" pin_signal="PTB2">
+                     <pin_features>
+                        <pin_feature name="direction" value="OUTPUT"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="PORTC" signal="port, 0" pin_num="40" pin_signal="PTC0">
+                     <pin_features>
+                        <pin_feature name="direction" value="OUTPUT"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="PORTE" signal="port, 1" pin_num="93" pin_signal="PTE1">
+                     <pin_features>
+                        <pin_feature name="direction" value="OUTPUT"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="PORTE" signal="port, 15" pin_num="2" pin_signal="PTE15">
+                     <pin_features>
+                        <pin_feature name="direction" value="INPUT"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="PORTA" signal="port, 6" pin_num="58" pin_signal="PTA6">
+                     <pin_features>
+                        <pin_feature name="direction" value="OUTPUT"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="PORTE" signal="port, 16" pin_num="1" pin_signal="PTE16">
+                     <pin_features>
+                        <pin_feature name="direction" value="INPUT"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="PORTE" signal="port, 3" pin_num="18" pin_signal="PTE3">
+                     <pin_features>
+                        <pin_feature name="direction" value="INPUT"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="PORTE" signal="port, 8" pin_num="26" pin_signal="PTE8">
+                     <pin_features>
+                        <pin_feature name="direction" value="OUTPUT"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="PORTD" signal="port, 9" pin_num="41" pin_signal="PTD9">
+                     <pin_features>
+                        <pin_feature name="direction" value="OUTPUT"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="PORTC" signal="port, 10" pin_num="52" pin_signal="PTC10">
+                     <pin_features>
+                        <pin_feature name="direction" value="INPUT"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="PORTC" signal="port, 11" pin_num="51" pin_signal="PTC11">
+                     <pin_features>
+                        <pin_feature name="direction" value="INPUT"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="PORTC" signal="port, 13" pin_num="49" pin_signal="PTC13">
+                     <pin_features>
+                        <pin_feature name="direction" value="INPUT"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="PORTA" signal="port, 15" pin_num="83" pin_signal="PTA15">
+                     <pin_features>
+                        <pin_feature name="direction" value="OUTPUT"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="PORTA" signal="port, 16" pin_num="82" pin_signal="PTA16">
+                     <pin_features>
+                        <pin_feature name="direction" value="OUTPUT"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="PORTD" signal="port, 7" pin_num="31" pin_signal="PTD7">
+                     <pin_features>
+                        <pin_feature name="direction" value="OUTPUT"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="PORTD" signal="port, 1" pin_num="3" pin_signal="PTD1">
+                     <pin_features>
+                        <pin_feature name="direction" value="OUTPUT"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="PORTB" signal="port, 4" pin_num="28" pin_signal="PTB4">
+                     <pin_features>
+                        <pin_feature name="direction" value="OUTPUT"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="LPUART1" signal="txd" pin_num="80" pin_signal="PTC7">
+                     <pin_features>
+                        <pin_feature name="direction" value="OUTPUT"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="LPUART1" signal="rxd" pin_num="81" pin_signal="PTC6"/>
+                  <pin peripheral="PORTD" signal="port, 17" pin_num="20" pin_signal="PTD17">
+                     <pin_features>
+                        <pin_feature name="direction" value="INPUT"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="PORTD" signal="port, 13" pin_num="25" pin_signal="PTD13">
+                     <pin_features>
+                        <pin_feature name="direction" value="INPUT"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="PORTD" signal="port, 14" pin_num="24" pin_signal="PTD14">
+                     <pin_features>
+                        <pin_feature name="direction" value="INPUT"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="PORTC" signal="port, 12" pin_num="50" pin_signal="PTC12">
+                     <pin_features>
+                        <pin_feature name="direction" value="INPUT"/>
+                     </pin_features>
+                  </pin>
                </pins>
             </function>
          </functions_list>
       </pins>
       <clocks name="Clocks" version="13.0" enabled="true" update_project_code="true">
          <generated_project_files>
-            <file path="board/clock_config.c" update_enabled="true"/>
+            <file path="BSP/clock_config.c" update_enabled="true"/>
             <file path="board/clock_config.h" update_enabled="true"/>
          </generated_project_files>
          <clocks_profile>
@@ -298,6 +425,7 @@
          </efuse_profile>
       </efuse>
       <gtm name="GTM" version="1.0" enabled="false" update_project_code="true">
+         <generated_project_files/>
          <gtm_profile>
             <processor_version>N/A</processor_version>
          </gtm_profile>
@@ -384,6 +512,26 @@
                   <data type="Version">1.0.0</data>
                </feature>
             </dependency>
+            <dependency resourceType="SWComponent" resourceId="platform.driver.lpuart" description="LPUART Driver is not found in the toolchain/IDE project. The project will not compile!" problem_level="2" source="Peripherals">
+               <feature name="enabled" evaluation="equal">
+                  <data type="Boolean">true</data>
+               </feature>
+            </dependency>
+            <dependency resourceType="SWComponent" resourceId="platform.driver.lpuart" description="An unsupported version of the LPUART Driver in the toolchain/IDE project. Required: ${required_value}, actual: ${actual_value}. The project might not compile correctly." problem_level="1" source="Peripherals">
+               <feature name="version" evaluation="equivalent">
+                  <data type="Version">1.0.0</data>
+               </feature>
+            </dependency>
+            <dependency resourceType="SWComponent" resourceId="platform.driver.osif" description="OSIF driver is not found in the toolchain/IDE project. The project will not compile!" problem_level="2" source="Peripherals">
+               <feature name="enabled" evaluation="equal">
+                  <data type="Boolean">true</data>
+               </feature>
+            </dependency>
+            <dependency resourceType="SWComponent" resourceId="platform.driver.osif" description="An unsupported version of the OSIF driver in the toolchain/IDE project. Required: ${required_value}, actual: ${actual_value}. The project might not compile correctly." problem_level="1" source="Peripherals">
+               <feature name="version" evaluation="equivalent">
+                  <data type="Version">1.0.0</data>
+               </feature>
+            </dependency>
             <dependency resourceType="Tool" resourceId="Clocks" description="The Clocks tool is required by the Peripherals tool, but it is disabled." problem_level="2" source="Peripherals">
                <feature name="enabled" evaluation="equal">
                   <data>true</data>
@@ -403,6 +551,10 @@
             <file path="board/peripherals_lpit_config_1.h" update_enabled="true"/>
             <file path="board/peripherals_lptmr_1.c" update_enabled="true"/>
             <file path="board/peripherals_lptmr_1.h" update_enabled="true"/>
+            <file path="board/peripherals_lpuart_1.c" update_enabled="true"/>
+            <file path="board/peripherals_lpuart_1.h" update_enabled="true"/>
+            <file path="board/peripherals_osif_1.c" update_enabled="true"/>
+            <file path="board/peripherals_osif_1.h" update_enabled="true"/>
             <file path="board/peripherals_pdb_config_1.c" update_enabled="true"/>
             <file path="board/peripherals_pdb_config_1.h" update_enabled="true"/>
             <file path="board/peripherals_rtc_1.c" update_enabled="true"/>
@@ -580,7 +732,7 @@
                                  <setting name="flexcan_cfg_propSeg" value="7"/>
                                  <setting name="flexcan_cfg_phaseSeg1" value="4"/>
                                  <setting name="flexcan_cfg_phaseSeg2" value="1"/>
-                                 <setting name="flexcan_cfg_preDivider" value="1"/>
+                                 <setting name="flexcan_cfg_preDivider" value="0"/>
                                  <setting name="flexcan_cfg_rJumpwidth" value="1"/>
                               </struct>
                            </struct>
@@ -723,6 +875,27 @@
                            </struct>
                         </array>
                      </config_set>
+                  </instance>
+                  <instance name="lpuart_1" uuid="1e409939-9710-455a-8073-2da4feb35037" type="lpuart_config" type_id="lpuart" mode="general" peripheral="LPUART_1" enabled="true" comment="" custom_name_enabled="false" editing_lock="false">
+                     <config_set name="lpuart_driver">
+                        <setting name="lpuart_state_name" value="lpUartState0"/>
+                        <array name="lpuart_configuration">
+                           <struct name="0">
+                              <setting name="name" value="lpuart_0_InitConfig0"/>
+                              <setting name="readonly" value="true"/>
+                              <setting name="transferType" value="LPUART_USING_INTERRUPTS"/>
+                              <setting name="baudRate" value="38400"/>
+                              <setting name="parityMode" value="LPUART_PARITY_DISABLED"/>
+                              <setting name="stopBitCount" value="LPUART_ONE_STOP_BIT"/>
+                              <setting name="bitCountPerChar" value="LPUART_8_BITS_PER_CHAR"/>
+                              <setting name="rxDMAChannel" value="0"/>
+                              <setting name="txDMAChannel" value="0"/>
+                           </struct>
+                        </array>
+                     </config_set>
+                  </instance>
+                  <instance name="osif_1" uuid="9fd0a1f6-d9f8-4550-9029-39cc342e1c4d" type="osif" type_id="osif" mode="general" enabled="true" comment="" custom_name_enabled="false" editing_lock="false">
+                     <config_set name="osif"/>
                   </instance>
                </instances>
             </functional_group>

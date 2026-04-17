@@ -6,7 +6,6 @@
  */
 #include "stdio.h"
 #include "pdb_driver.h"
-
 void delay(uint32_t cnt)
 {
 	while(cnt!=0)
@@ -14,7 +13,6 @@ void delay(uint32_t cnt)
 		cnt--;
 	}
 }
-
 bool calculateIntValue(const pdb_timer_config_t *pdbConfig, uint32_t uSec, uint16_t * intVal)
 {
 

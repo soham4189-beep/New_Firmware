@@ -1914,7 +1914,7 @@ status_t FLEXCAN_DRV_GetTransferStatus(uint8_t instance, uint8_t mb_idx)
 #endif
     else
     {
-        status = STATUS_BUSY;
+       status = STATUS_BUSY;
     }
 
     return status;

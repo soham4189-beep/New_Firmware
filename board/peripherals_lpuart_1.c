@@ -22,44 +22,35 @@ functionalGroups:
 /*******************************************************************************
  * Included files 
  ******************************************************************************/
-#include "peripherals_flexcan_config_2.h"
+#include "peripherals_lpuart_1.h"
 
 /*******************************************************************************
- * flexcan_config_2 initialization code
+ * lpuart_1 initialization code
  ******************************************************************************/
 /* clang-format off */
 /* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
 instance:
-- name: 'flexcan_config_2'
-- type: 'flexcan_config'
+- name: 'lpuart_1'
+- type: 'lpuart_config'
 - mode: 'general'
 - custom_name_enabled: 'false'
-- type_id: 'flexcan'
+- type_id: 'lpuart'
 - functional_group: 'BOARD_InitPeripherals'
-- peripheral: 'CAN1'
+- peripheral: 'LPUART_1'
 - config_sets:
-  - flexcan:
-    - flexcanCfg:
-      - name: 'flexcanInitConfig1'
-      - readonly: 'false'
-      - flexcan_cfg_flexcanMode: 'FLEXCAN_NORMAL_MODE'
-      - flexcan_cfg_fd_enable: 'false'
-      - flexcan_cfg_payload: 'FLEXCAN_PAYLOAD_SIZE_8'
-      - flexcan_cfg_max_num_mb: '16'
-      - flexcan_cfg_num_id_filters: 'FLEXCAN_RX_FIFO_ID_FILTERS_8'
-      - flexcan_cfg_is_rx_fifo_needed: 'false'
-      - flexcan_cfg_transfer_type: 'FLEXCAN_RXFIFO_USING_INTERRUPTS'
-      - flexcan_cfg_rxFifoDMAChannel: '0'
-      - flexcan_cfg_pe_clock: 'FLEXCAN_CLK_SOURCE_OSC'
-      - flexcan_bitrate2ts: 'false'
-      - flexcan_cfg_time_segments1:
-        - flexcan_cfg_bitrate:
-          - flexcan_cfg_propSeg: '7'
-          - flexcan_cfg_phaseSeg1: '4'
-          - flexcan_cfg_phaseSeg2: '1'
-          - flexcan_cfg_preDivider: '1'
-          - flexcan_cfg_rJumpwidth: '1'
-    - flexcan_state_name: 'flexcanState1'
+  - lpuart_driver:
+    - lpuart_state_name: 'lpUartState0'
+    - lpuart_configuration:
+      - 0:
+        - name: 'lpuart_0_InitConfig0'
+        - readonly: 'true'
+        - transferType: 'LPUART_USING_INTERRUPTS'
+        - baudRate: '38400'
+        - parityMode: 'LPUART_PARITY_DISABLED'
+        - stopBitCount: 'LPUART_ONE_STOP_BIT'
+        - bitCountPerChar: 'LPUART_8_BITS_PER_CHAR'
+        - rxDMAChannel: '0'
+        - txDMAChannel: '0'
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
 /* clang-format on */
 
@@ -71,26 +62,16 @@ instance:
  * The external variables will be used in other source files in application code.
  *
  */
+lpuart_state_t lpUartState0;
 
-flexcan_state_t flexcanState1;
-
-flexcan_user_config_t flexcanInitConfig1 = {
-  .flexcanMode = FLEXCAN_NORMAL_MODE,
-  .fd_enable = false,
-  .payload = FLEXCAN_PAYLOAD_SIZE_8,
-  .max_num_mb = 16UL,
-  .num_id_filters = FLEXCAN_RX_FIFO_ID_FILTERS_8,
-  .is_rx_fifo_needed = false,
-  .transfer_type = FLEXCAN_RXFIFO_USING_INTERRUPTS,
-  .rxFifoDMAChannel = 0U,
-  .pe_clock = FLEXCAN_CLK_SOURCE_OSC,
-  .bitrate = {
-    .propSeg = 7UL,
-    .phaseSeg1 = 4UL,
-    .phaseSeg2 = 1UL,
-    .preDivider = 1UL,
-    .rJumpwidth = 1UL
-  }
+const lpuart_user_config_t lpuart_0_InitConfig0 = {
+  .transferType = LPUART_USING_INTERRUPTS,
+  .baudRate = 38400UL,
+  .parityMode = LPUART_PARITY_DISABLED,
+  .stopBitCount = LPUART_ONE_STOP_BIT,
+  .bitCountPerChar = LPUART_8_BITS_PER_CHAR,
+  .rxDMAChannel = 0UL,
+  .txDMAChannel = 0UL
 };
 
 

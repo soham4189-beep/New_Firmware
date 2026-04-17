@@ -3,8 +3,8 @@
  * will be overwritten if the respective S32 Config Tools is used to update this file.
  **********************************************************************************************************************/
 
-#ifndef lpit_config_1_H
-#define lpit_config_1_H
+#ifndef osif_1_H
+#define osif_1_H
 
 /**
  * @page misra_violations MISRA-C:2012 violations
@@ -17,25 +17,8 @@
 /*******************************************************************************
  * Included files 
  ******************************************************************************/
-#include "lpit_driver.h"
-
-/*******************************************************************************
- * Definitions 
- ******************************************************************************/
-
-/*Device instance number */
-#define INST_LPIT_CONFIG_1  (0U)
-
-/*******************************************************************************
- * Global variables 
- ******************************************************************************/
-
-/* LPIT global configuration */
-extern const lpit_user_config_t lpit1_InitConfig;
-
-/* LPIT channel configuration */
-extern lpit_user_channel_config_t lpit1_ChnConfig0;
-extern lpit_user_channel_config_t lpit1_ChnConfig1;
+#include "osif.h"
 
 
-#endif /* lpit_config_1_H */
+
+#endif /* osif_1_H */

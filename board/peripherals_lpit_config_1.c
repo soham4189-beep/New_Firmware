@@ -6,7 +6,7 @@
 /* clang-format off */
 /* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
 !!GlobalInfo
-product: Peripherals v11.0
+product: Peripherals v14.0
 processor: S32K144
 package_id: S32K144_LQFP100
 mcu_data: s32sdk_s32k1xx_rtm_401
@@ -79,7 +79,20 @@ const lpit_user_config_t  lpit1_InitConfig = {
 lpit_user_channel_config_t  lpit1_ChnConfig0 = {
   .timerMode = LPIT_PERIODIC_COUNTER,
   .periodUnits = LPIT_PERIOD_UNITS_MICROSECONDS,
-  .period = 1000UL,
+  .period = 100000UL,
+  .triggerSource = LPIT_TRIGGER_SOURCE_EXTERNAL,
+  .triggerSelect = 0U,
+  .enableReloadOnTrigger = false,
+  .enableStopOnInterrupt = false,
+  .enableStartOnTrigger = false,
+  .chainChannel = false,
+  .isInterruptEnabled = true
+};
+
+  lpit_user_channel_config_t  lpit1_ChnConfig1 = {
+  .timerMode = LPIT_PERIODIC_COUNTER,
+  .periodUnits = LPIT_PERIOD_UNITS_MICROSECONDS,
+  .period = 100000UL,
   .triggerSource = LPIT_TRIGGER_SOURCE_EXTERNAL,
   .triggerSelect = 0U,
   .enableReloadOnTrigger = false,

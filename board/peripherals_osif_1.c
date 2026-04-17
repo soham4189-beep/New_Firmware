@@ -22,63 +22,24 @@ functionalGroups:
 /*******************************************************************************
  * Included files 
  ******************************************************************************/
-#include "peripherals_lptmr_1.h"
+#include "peripherals_osif_1.h"
 
 /*******************************************************************************
- * lptmr_1 initialization code
+ * osif_1 initialization code
  ******************************************************************************/
 /* clang-format off */
 /* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
 instance:
-- name: 'lptmr_1'
-- type: 'lptmr'
+- name: 'osif_1'
+- type: 'osif'
 - mode: 'general'
 - custom_name_enabled: 'false'
-- type_id: 'lptmr'
+- type_id: 'osif'
 - functional_group: 'BOARD_InitPeripherals'
-- peripheral: 'LPTMR_0'
 - config_sets:
-  - lptmr:
-    - lptmrConfig:
-      - 0:
-        - name: 'lptmr_1_config0'
-        - readOnly: 'true'
-        - workMode: 'LPTMR_WORKMODE_TIMER'
-        - dmaRequest: 'true'
-        - interruptEnable: 'true'
-        - freeRun: 'false'
-        - compareValue: '1000000'
-        - counterUnits: 'LPTMR_COUNTER_UNITS_MICROSECONDS'
-        - clockSelect: 'LPTMR_CLOCKSOURCE_SIRCDIV2'
-        - prescaler: 'LPTMR_PRESCALE_2'
-        - bypassPrescaler: 'false'
-        - pinSelect: 'LPTMR_PINSELECT_TRGMUX'
-        - pinPolarity: 'LPTMR_PINPOLARITY_RISING'
+  - osif: []
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
 /* clang-format on */
 
-/**
- * @page misra_violations MISRA-C:2012 violations
- *
- * @section [global]
- * Violates MISRA 2012 Advisory Rule 8.7, External variable could be made static.
- * The external variables will be used in other source files in application code.
- *
- */
-
-/* LPTMR configuration structure 0 */
-const lptmr_config_t  lptmr_1_config0 = {
-  .workMode = LPTMR_WORKMODE_TIMER,
-  .dmaRequest = true,
-  .interruptEnable = true,
-  .freeRun = false,
-  .compareValue = 5000UL,
-  .counterUnits = LPTMR_COUNTER_UNITS_MICROSECONDS,
-  .clockSelect = LPTMR_CLOCKSOURCE_SIRCDIV2,
-  .prescaler = LPTMR_PRESCALE_2,
-  .bypassPrescaler = false,
-  .pinSelect = LPTMR_PINSELECT_TRGMUX,
-  .pinPolarity = LPTMR_PINPOLARITY_RISING
-};
 
 

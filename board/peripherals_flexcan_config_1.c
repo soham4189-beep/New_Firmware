@@ -6,7 +6,7 @@
 /* clang-format off */
 /* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
 !!GlobalInfo
-product: Peripherals v11.0
+product: Peripherals v14.0
 processor: S32K144
 package_id: S32K144_LQFP100
 mcu_data: s32sdk_s32k1xx_rtm_401
@@ -57,7 +57,7 @@ instance:
           - flexcan_cfg_propSeg: '7'
           - flexcan_cfg_phaseSeg1: '4'
           - flexcan_cfg_phaseSeg2: '1'
-          - flexcan_cfg_preDivider: '1'
+          - flexcan_cfg_preDivider: '0'
           - flexcan_cfg_rJumpwidth: '1'
     - flexcanPN:
       - pnOn: 'false'
@@ -90,7 +90,7 @@ flexcan_user_config_t flexcanInitConfig0 = {
     .propSeg = 7UL,
     .phaseSeg1 = 4UL,
     .phaseSeg2 = 1UL,
-    .preDivider = 0U,
+    .preDivider = 0UL,
     .rJumpwidth = 1UL
   }
 };
